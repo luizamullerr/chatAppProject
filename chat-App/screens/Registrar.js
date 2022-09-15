@@ -19,13 +19,14 @@ const Registrar = ({ navigation }) => {
     const register = () => {
         auth
         .createUserWithEmailAndPassword(email, senha)
-        .then((authUser => {
-            authUser.user.update({
+        .then((authUser) => {
+            authUser.user.updateProfile({
                 displayNome: nome,
-                photoUrl: imagemUrl || "https://cdn-icons-png.flaticon.com/512/1453/1453729.png",
+                photoUrl: imagemUrl ||
+                 "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png",
             });
-        }))
-        .catch((error => alert(error.message)));
+        })
+        .catch((error) => alert(error.message));
     };
 
     return (
